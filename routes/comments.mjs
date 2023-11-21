@@ -45,9 +45,33 @@ router.patch("/:id", async(req, res) => {
 })
 
 
+//DELETE - delete a comment
+
+//COMMENT DELETED SHOWN BELOW;
+// {
+//     "_id": {
+//       "$oid": "5a9427648b0beebeb69579f5"
+//     },
+//     "name": "John Bishop",
+//     "email": "john_bishop@fakegmail.com",
+//     "movie_id": {
+//       "$oid": "573a1390f29313caabcd446f"
+//     },
+//     "text": "Id error ab at molestias dolorum incidunt. Non deserunt praesentium dolorem nihil. Optio tempora vel ut quas.\nMinus dicta numquam quasi. Rem totam cumque at eum. Ullam hic ut ea magni.",
+//     "date": {
+//       "$date": "1975-01-21T00:31:22.000Z"
+//     }
+//   }
 
 
+router.delete("/:id", async(req, res) => {
+    const query = {_id: new ObjectId(req.params.id)}
 
+    const collection = db.collection('comments')
+    const result = await collection.deleteOne(query)
+
+    res.send(result).status(200)
+})
 
 
 
