@@ -22,6 +22,20 @@ router.get('/:id', async(req, res) => {
 })
 
 
+// POST - create new id for a comment // //newid-655c0e9f62d529dcd3d182c4//
+router.post('/', async (req, res) => {
+    const collection = await db.collection('comments')
+    const newComment = req.body; 
+    newComment.date = new Date()
+    const result = await collection.insertOne(newComment)
+    res.send(result).status(204)
+})
+
+
+
+
+
+
 
 
 
