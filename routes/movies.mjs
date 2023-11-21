@@ -32,11 +32,11 @@ router.post('/', async (req, res) => {
 })
 
 
-//UPDATE - Update the new moview created
+//UPDATE - Update the new movie created
 router.patch("/:id", async(req, res) => {
     const query = {_id: new ObjectId(req.params.id)}
     const updates = {
-        $push: {grades: req.body}
+        $push: {movies: req.body}
     };
     console.log(updates);
     const collection = db.collection("movies")

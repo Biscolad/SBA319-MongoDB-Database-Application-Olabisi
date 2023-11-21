@@ -32,6 +32,19 @@ router.post('/', async (req, res) => {
 })
 
 
+//UPDATE - Update the new id created with new comment
+router.patch("/:id", async(req, res) => {
+    const query = {_id: new ObjectId(req.params.id)}
+    const updates = {
+        $push: {comments: req.body}
+    };
+    console.log(updates);
+    const collection = db.collection("comments")
+    const result = await collection.updateOne(query, updates)
+    res.send(result).status(200)
+})
+
+
 
 
 
