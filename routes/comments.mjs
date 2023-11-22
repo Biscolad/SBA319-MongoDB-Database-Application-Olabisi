@@ -4,6 +4,7 @@ import {ObjectId} from 'mongodb'
 
 const router = express.Router()
 
+
 //GET - get all comments
 router.get("/", async(req, res) => {
     const collection = await db.collection("comments")
@@ -72,6 +73,23 @@ router.delete("/:id", async(req, res) => {
 
     res.send(result).status(200)
 })
+
+
+
+//INDEX CREATION 
+const createCommentIndex = async () => {
+    //create index for the movie_id field
+    await db.comments.createIndex({movie_id:1});
+
+    //create index for the email field
+    await db.comments.createIndex({date: -1});
+};
+
+//createCommentIndex();
+
+
+
+
 
 
 

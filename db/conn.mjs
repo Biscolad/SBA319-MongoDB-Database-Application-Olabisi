@@ -1,4 +1,4 @@
-//"mongodb+srv://biscolad:Motirise@mongopractice.xh7cn5p.mongodb.net/mongopractice?retryWrites=true&w=majority";
+//"mongodb+srv://biscolad:<password>@mongopractice.xh7cn5p.mongodb.net/mongopractice?retryWrites=true&w=majority";
 
 
 import  {MongoClient} from "mongodb";
